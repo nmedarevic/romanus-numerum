@@ -1,0 +1,25 @@
+{
+  "name": "romanus-numerum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "init": "snowpack init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmedarevic/romanus-numerum.git"
+  },
+  "author": "Nikola Medarevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmedarevic/romanus-numerum/issues"
+  },
+  "homepage": "https://github.com/nmedarevic/romanus-numerum#readme",
+  "devDependencies": {
+    "snowpack": "^3.0.13"
+  }
+}
