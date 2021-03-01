@@ -3,6 +3,10 @@ import { NUMBERS } from "../roman"
 export const STACK = {
   stack: [],
   push: (number) => {
+    if (typeof number === 'undefined') {
+      return
+    }
+
     STACK.stack.push(number)
 
     console.log(STACK.stack)

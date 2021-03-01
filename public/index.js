@@ -1,10 +1,7 @@
 import {fromRoman, toRoman, isRomanNumber} from './../src/roman'
-// import { isRomanNumber } from './../src/roman/nvmbers'
 
 function transform(event) {
   const value = event.target.value
-
-  console.log('input', value)
 
   if (value === '') {
     return {value: ''}
@@ -14,7 +11,7 @@ function transform(event) {
   const isRoman = isRomanNumber(value)
 
   if (!isArabicNumber && !isRoman) {
-    throw new Error()
+    throw new Error('Not a valid number!')
   }
 
   return {
@@ -23,6 +20,11 @@ function transform(event) {
   }
 }
 
+function renderResult(resultElement, value) {
+  resultElement.innerHTML = ''
+  const result = document.createTextNode(value)
+  resultElement.appendChild(result)
+}
 
 function setUpListeners() {
   const inputElement = window.document.querySelector('.main-input')
@@ -33,12 +35,9 @@ function setUpListeners() {
     try {
       const {value, toRoman} = transform(event)
 
-      resultElement.innerHTML = ''
-      const result = document.createTextNode(value)
-
-      resultElement.appendChild(result)
+      renderResult(resultElement, value)
     } catch (error) {
-      console.log('dsad')
+      renderResult(resultElement, error.message)
     }
   }
 

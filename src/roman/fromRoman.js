@@ -3,48 +3,46 @@ import {STACK} from '../util/stack'
 import { NUMBERS } from "./nvmbers"
 
 const calculateRomanToInteger = (romanNumerals) => {
-  console.log(romanNumerals)
-  const res = romanNumerals.reduce((acc, number, index, array) => {
-    if (STACK.isEmpty()) {
-      STACK.push(number)
+  let acc = 0
+  let index = 0
 
-      if (index === array.length - 1) {
-        acc += STACK.sumAndClearStack()
-      }
-
-
-      return acc
-    }
+  do {
+    const number = romanNumerals[index]
 
     const prev = STACK.lastOnStack()
 
-    if (isGreaterThanLast(number, prev)) {
+    STACK.push(number)
+
+    if (isLowerThanLast(number, prev)) {
+      STACK.pop()
+
       acc += STACK.sumAndClearStack()
 
       STACK.push(number)
 
-      return acc
+      ++index
+      continue
     }
 
-    if (isLowerThanLast(number, prev)) {
+    if (isGreaterThanLast(number, prev)) {
+      STACK.pop()
+
       const lowerArg = STACK.sumAndClearStack()
 
       acc += NUMBERS[number] - lowerArg
 
-      return acc
+      ++index
+      continue
     }
 
-    STACK.push(number)
-
-    if (index === array.length - 1) {
+    if (index >= romanNumerals.length - 1) {
       acc += STACK.sumAndClearStack()
     }
 
-    return acc
-  }, 0)
+    ++index
+  } while (!STACK.isEmpty())
 
-  STACK.clear()
-  return res
+  return acc
 }
 
 const fromRoman = (input) => {
