@@ -1,4 +1,4 @@
-import { NUMBER_MAP } from "./nvmbers"
+import { NUMBER_MAP } from "./nvmbers.js"
 
 const constructRomanNumeral = (number) => {
   if (number === 0)                 { return '' }

@@ -1,4 +1,4 @@
-import {fromRoman, toRoman, isRomanNumber} from './../src/roman'
+import {fromRoman, toRoman, isRomanNumber} from './dist/roman/index.js'
 
 function transform(event) {
   const value = event.target.value
