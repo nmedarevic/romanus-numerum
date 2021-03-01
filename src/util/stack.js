@@ -8,13 +8,9 @@ export const STACK = {
     }
 
     STACK.stack.push(number)
-
-    console.log(STACK.stack)
   },
   pop: (number) => {
     STACK.stack.pop()
-
-    console.log(STACK.stack)
   },
   lastOnStack: () => {
     return STACK.stack[STACK.stack.length - 1]
